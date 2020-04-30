@@ -6,3 +6,5 @@ Setting up RESTful web service with jersey and returning JSON: // http://www.mky
 Usage: http://localhost/ngdemo/rest/hello/foo
 
 Another REST tutorial by Vogella: http://www.vogella.com/articles/REST/
+
+This thing won't commit.

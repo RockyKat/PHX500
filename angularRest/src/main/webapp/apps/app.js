@@ -48,7 +48,7 @@ var ngdemo = angular.module('ngdemo', [
            							{templateUrl: 'apps/home/query/homeQuery.html'  , 
 									controller:  'HomeJsonController'});                 	
            	
-        	$routeProvider.otherwise({redirectTo: '/home'});
+        	$routeProvider.otherwise({redirectTo: '/home/query'});
     	}]);
 
 
