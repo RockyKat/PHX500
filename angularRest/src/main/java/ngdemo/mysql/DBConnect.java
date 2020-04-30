@@ -10,7 +10,9 @@ package ngdemo.mysql;
 	    public DBConnect() {
 	 try {
 	     Class.forName("com.mysql.cj.jdbc.Driver");
-	     con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila", "root", "PaulShock1");
+	     con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "admin", "admin");
+//	     								   "jdbc:mysql://localhost/db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+
 	     st = con.createStatement();
 	 } catch (Exception ex) {
 	     System.out.println("ERRORCON: " + ex);
