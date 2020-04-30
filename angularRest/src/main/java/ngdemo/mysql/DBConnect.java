@@ -11,7 +11,6 @@ package ngdemo.mysql;
 	 try {
 	     Class.forName("com.mysql.cj.jdbc.Driver");
 	     con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "admin", "admin");
-//	     								   "jdbc:mysql://localhost/db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
 
 	     st = con.createStatement();
 	 } catch (Exception ex) {
