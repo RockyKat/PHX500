@@ -1,6 +1,7 @@
 package ngdemo.tools.console;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -11,12 +12,15 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 import ngdemo.tools.console.MultiOutputStream;
 
 public class StartUp {
 	Path tempDir;
 	Path tempFile;
+	String logFile;
+	String logFileContent;
 
     public StartUp() {
 		try 
@@ -27,6 +31,8 @@ public class StartUp {
 //			}
 		
     		String x = new File(".").getAbsolutePath(); 
+    		logFile = x + "stdout.log";
+    		
 //    		FileOutputStream fout= new FileOutputStream(tempFile.toString());
 //    		FileOutputStream ferr= new FileOutputStream(tempFile.toString());
     		FileOutputStream fout= new FileOutputStream("stdout.log");
@@ -41,8 +47,15 @@ public class StartUp {
     		System.setOut(stdout);
     		System.setErr(stderr);
     		
-        	System.out.println("Console File Path:" + x + "stdout.log");
+        	System.err.println("Console File Path:" + x + "stdout.log");
+        	System.err.println("ConsoleTEST:" + "Ready to read file.");
+        	System.out.println("CONSOLE:     ");
+
+
         	//System.out.println("Path:" + tempFile.toString());
+        	String result = readStdOutLogFile();
+//        	System.err.println("READFILE:  " + result);
+
 
 
     	}
@@ -50,11 +63,11 @@ public class StartUp {
     	{
     		//Could not create/open the file
     	}
-//		catch (IOException e) 
-//		{
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+
+		catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
     private void createTempFileWithDir() throws IOException 
@@ -66,7 +79,32 @@ public class StartUp {
         List<String> lines = Arrays.asList("Line1", "Line2");
         Files.write(tempFile, lines, Charset.defaultCharset(), StandardOpenOption.WRITE);
          
-        System.out.printf("Wrote text to temporary file %s%n", tempFile.toString());
+        System.err.printf("Wrote text to temporary file %s%n", tempFile.toString());
+    }
+    
+    public String readStdOutLogFile() throws IOException 
+    {
+    	try
+    	{
+	        FileInputStream streamInputFile = new FileInputStream("stdout.log");
+	        Scanner scanInput = new Scanner(streamInputFile);
+	        
+	        while(scanInput.hasNext() )
+	        {
+	        	logFileContent += scanInput.nextLine() + "   ";
+	        	
+	        }
+	        streamInputFile.close();
+	        scanInput.close();
+        
+	        return logFileContent; 
+    	}
+    	catch (FileNotFoundException ex)
+    	{
+    		//Could not create/open the file
+    	}
+		return null;
+
     }
 }
 

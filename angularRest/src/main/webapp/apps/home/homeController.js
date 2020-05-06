@@ -9,6 +9,8 @@ app.controller('HomeController', ['$scope', 'HomeFactory',
 	        $scope.homefirstname 	= homeFactory.firstName;
 	        $scope.homelastname 	= homeFactory.lastName;
 	        $scope.homebmp 			= homeFactory.bmp;
+	        $scope.homestrOutLog	= homeFactory.strOutLog;
+
 
 	    })
 }]);
