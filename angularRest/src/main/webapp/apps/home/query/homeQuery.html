@@ -65,7 +65,7 @@
 	           	</div>
             </div>
 		<!-- --------------------------------------------------------------------------------- -->  
-		<div  	class="card-header"
+		<div  	
 				ng-repeat="item in artists | filter: query | orderBy:artistOrder:direction">
 					<div class="card-body">
 					<a href="#{{item.url}}">	 
@@ -82,8 +82,8 @@
 						<div class="text-secondary font-italic">{{item.bio}}</div>
 						
 			  		</div>	
+			  		
 		</div>
-		
 		
 		<!-- --------------------------------------------------------------------------------- -->  
 			  											            

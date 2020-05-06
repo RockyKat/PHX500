@@ -23,22 +23,22 @@ public class SQLRestService {
     {
         SQLService sqlService = new SQLService();
         
-         DBConnect connect = new DBConnect();
-		 connect.getData();    		 
-		 System.out.println("NEw SQLL");
-		 
-		 connect.updateData();
-		 
-		 System.out.println("MORE NEW SQLL");
-		 
-		 connect.createARow();
-		 System.out.println("CREATED A ROW");
-		 
-		 connect.deleteARow();
-		 System.out.println("DELETED A ROW");
+//         DBConnect connect = new DBConnect();
+//		 connect.getData();    		 
+//		 System.out.println("NEw SQLL");
+//		 
+//		 connect.updateData();
+//		 
+//		 System.out.println("MORE NEW SQLL");
+//		 
+//		 connect.createARow();
+//		 System.out.println("CREATED A ROW");
+//		 
+//		 connect.deleteARow();
+//		 System.out.println("DELETED A ROW");
         
         SQL mia = sqlService.getDefaultSQL();
-        System.out.println("Returned mia");
+        System.out.println("SQLRestService:  " + mia.getLastName());
         return mia;
     }
 
