@@ -1,7 +1,7 @@
 package ngdemo.rest;
 
-import ngdemo.domain.User;
-import ngdemo.service.UserService;
+import ngdemo.user.domain.User;
+import ngdemo.user.service.UserService;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

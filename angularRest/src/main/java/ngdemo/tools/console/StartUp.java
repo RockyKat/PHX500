@@ -29,8 +29,8 @@ public class StartUp {
     		String x = new File(".").getAbsolutePath(); 
 //    		FileOutputStream fout= new FileOutputStream(tempFile.toString());
 //    		FileOutputStream ferr= new FileOutputStream(tempFile.toString());
-    		FileOutputStream fout= new FileOutputStream("stdout");
-    		FileOutputStream ferr= new FileOutputStream("stderr");
+    		FileOutputStream fout= new FileOutputStream("stdout.log");
+    		FileOutputStream ferr= new FileOutputStream("stderr.log");
     		
     		MultiOutputStream multiOut= new MultiOutputStream(System.out, fout);
     		MultiOutputStream multiErr= new MultiOutputStream(System.err, ferr);

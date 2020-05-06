@@ -1,11 +1,11 @@
-package ngdemo.domain;
+package ngdemo.sql.domain;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 // from http://www.vogella.com/articles/REST/
 // JAX-RS supports an automatic mapping from JAXB annotated class to XML and JSON
-public class Home {
+public class SQL {
 
     private String firstName;
     private String lastName;

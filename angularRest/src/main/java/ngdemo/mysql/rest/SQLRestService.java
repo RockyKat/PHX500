@@ -1,7 +1,7 @@
 package ngdemo.mysql.rest;
 
-import ngdemo.domain.SQL;
-import ngdemo.service.SQLService;
+import ngdemo.sql.domain.SQL;
+import ngdemo.sql.service.SQLService;
 import ngdemo.mysql.DBConnect;
 
 import javax.ws.rs.GET;

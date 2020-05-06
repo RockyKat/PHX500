@@ -1,4 +1,4 @@
-package ngdemo.domain;
+package ngdemo.user.domain;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

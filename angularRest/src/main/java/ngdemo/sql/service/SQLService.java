@@ -1,6 +1,6 @@
-package ngdemo.service;
+package ngdemo.sql.service;
 
-import ngdemo.domain.SQL;
+import ngdemo.sql.domain.SQL;
 
 public class SQLService {
 

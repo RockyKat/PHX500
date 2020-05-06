@@ -1,7 +1,7 @@
 package ngdemo.rest;
 
-import ngdemo.domain.Home;
-import ngdemo.service.HomeService;
+import ngdemo.home.domain.Home;
+import ngdemo.home.service.HomeService;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

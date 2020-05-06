@@ -1,6 +1,6 @@
-package ngdemo.service;
+package ngdemo.home.service;
 
-import ngdemo.domain.Home;
+import ngdemo.home.domain.Home;
 import ngdemo.tools.console.StartUp;
 
 public class HomeService {
