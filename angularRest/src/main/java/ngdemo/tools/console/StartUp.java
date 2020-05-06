@@ -21,14 +21,16 @@ public class StartUp {
     public StartUp() {
 		try 
 		{
-			if(tempFile == null)
-			{
-				createTempFileWithDir();
-			}
+//			if(tempFile == null)
+//			{
+//				createTempFileWithDir();
+//			}
 		
     		String x = new File(".").getAbsolutePath(); 
-    		FileOutputStream fout= new FileOutputStream(tempFile.toString());
-    		FileOutputStream ferr= new FileOutputStream(tempFile.toString());
+//    		FileOutputStream fout= new FileOutputStream(tempFile.toString());
+//    		FileOutputStream ferr= new FileOutputStream(tempFile.toString());
+    		FileOutputStream fout= new FileOutputStream("stdout");
+    		FileOutputStream ferr= new FileOutputStream("stderr");
     		
     		MultiOutputStream multiOut= new MultiOutputStream(System.out, fout);
     		MultiOutputStream multiErr= new MultiOutputStream(System.err, ferr);
@@ -40,7 +42,7 @@ public class StartUp {
     		System.setErr(stderr);
     		
         	System.out.println("Console File Path:" + x + "stdout.log");
-        	System.out.println("Path:" + tempFile.toString());
+        	//System.out.println("Path:" + tempFile.toString());
 
 
     	}
@@ -48,11 +50,11 @@ public class StartUp {
     	{
     		//Could not create/open the file
     	}
-		catch (IOException e) 
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		catch (IOException e) 
+//		{
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
     }
     
     private void createTempFileWithDir() throws IOException 
