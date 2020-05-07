@@ -3,6 +3,7 @@ package ngdemo.rest;
 import ngdemo.sql.domain.SQL;
 import ngdemo.mysql.DBConnect;
 import ngdemo.sql.service.SQLService;
+import ngdemo.tools.console.StartUp;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -21,23 +22,27 @@ public class SQLRestService {
     @Produces(MediaType.APPLICATION_JSON)
     public SQL getDefaultSQLInJSON() 
     {
+    	int indexType = 1;
+    	StartUp start = new StartUp(indexType);
+    	
+    	
         SQLService sqlService = new SQLService();
         
-//         DBConnect connect = new DBConnect();
-//		 connect.getData();    		 
-//		 System.out.println("NEw SQLL");
-//		 
-//		 connect.updateData();
-//		 
-//		 System.out.println("MORE NEW SQLL");
-//		 
-//		 connect.createARow();
-//		 System.out.println("CREATED A ROW");
-//		 
-//		 connect.deleteARow();
-//		 System.out.println("DELETED A ROW");
+         DBConnect connect = new DBConnect();
+		 connect.getData();    		 
+		 System.out.println("NEw SQLL");
+		 
+		 connect.updateData();
+		 
+		 System.out.println("MORE NEW SQLL");
+		 
+		 connect.createARow();
+		 System.out.println("CREATED A ROW");
+		 
+		 connect.deleteARow();
+		 System.out.println("DELETED A ROW");
         
-        SQL mia = sqlService.getDefaultSQL();
+        SQL mia = sqlService.getDefaultSQL(start, indexType);
         System.out.println("SQLRestService:  " + mia.getLastName());
         return mia;
     }

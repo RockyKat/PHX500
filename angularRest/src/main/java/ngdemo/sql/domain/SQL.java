@@ -10,6 +10,7 @@ public class SQL {
     private String firstName;
     private String lastName;
     private String bmp;
+    private String strOutLog;
 
     public String getFirstName() {
         return firstName;
@@ -32,5 +33,12 @@ public class SQL {
 
     public void setBmp(String bmp) {
         this.bmp = bmp;
+    }
+    public String getStrOutLog() {
+        return strOutLog;
+    }
+
+    public void setStrOutLog(String strOutLog) {
+        this.strOutLog = strOutLog;
     }
 }

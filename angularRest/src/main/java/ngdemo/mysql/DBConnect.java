@@ -23,7 +23,8 @@ package ngdemo.mysql;
 	 try {
 	     String query = "select * from actor";
 	     rs = st.executeQuery(query);
-	     System.out.println("Records from Database");
+	     System.out.println("Records");
+	     System.out.println("Records Database:");
 	     while (rs.next()) {
 	  String name = rs.getString("first_name");
 	  String age = rs.getString("last_name");

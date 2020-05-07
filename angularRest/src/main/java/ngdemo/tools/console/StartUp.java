@@ -22,38 +22,48 @@ public class StartUp {
 	String logFile;
 	String logFileContent;
 
-    public StartUp() {
+    public StartUp(int index) {
 		try 
 		{
-//			if(tempFile == null)
-//			{
-//				createTempFileWithDir();
-//			}
+			if(index == 1)
+			{
+				if(tempFile == null)
+				{
+					createTempFileWithDir();
+				}
+			}
 		
     		String x = new File(".").getAbsolutePath(); 
     		logFile = x + "stdout.log";
+    		FileOutputStream fout;
+    		FileOutputStream ferr;
     		
-//    		FileOutputStream fout= new FileOutputStream(tempFile.toString());
-//    		FileOutputStream ferr= new FileOutputStream(tempFile.toString());
-    		FileOutputStream fout= new FileOutputStream("stdout.log");
-    		FileOutputStream ferr= new FileOutputStream("stderr.log");
+    		if(index == 1)
+    		{
+    			 fout= new FileOutputStream(tempFile.toString());
+    			 //ferr= new FileOutputStream(tempFile.toString());
+    		}
+    		else
+    		{
+    			 fout= new FileOutputStream("stdout.log");
+    			 //ferr= new FileOutputStream("stderr.log");
+    		}
     		
     		MultiOutputStream multiOut= new MultiOutputStream(System.out, fout);
-    		MultiOutputStream multiErr= new MultiOutputStream(System.err, ferr);
+    		//MultiOutputStream multiErr= new MultiOutputStream(System.err, ferr);
     		
     		PrintStream stdout= new PrintStream(multiOut);
-    		PrintStream stderr= new PrintStream(multiErr);
+    		//PrintStream stderr= new PrintStream(multiErr);
     		
     		System.setOut(stdout);
-    		System.setErr(stderr);
+    		//System.setErr(stderr);
     		
-        	System.err.println("Console File Path:" + x + "stdout.log");
-        	System.err.println("ConsoleTEST:" + "Ready to read file.");
-        	System.out.println("CONSOLE:     ");
+        	System.err.println("Console File:" + tempFile.toString());
+        	System.err.println("STARTUP LOG:");
 
 
         	//System.out.println("Path:" + tempFile.toString());
-        	String result = readStdOutLogFile();
+        	String result = readStdOutLogFile(index);
 //        	System.err.println("READFILE:  " + result);
 
 
@@ -79,19 +89,29 @@ public class StartUp {
         List<String> lines = Arrays.asList("Line1", "Line2");
         Files.write(tempFile, lines, Charset.defaultCharset(), StandardOpenOption.WRITE);
          
-        System.err.printf("Wrote text to temporary file %s%n", tempFile.toString());
+//        System.err.printf("Wrote text to temporary file %s%n", tempFile.toString());
     }
     
-    public String readStdOutLogFile() throws IOException 
+    public String readStdOutLogFile(int index) throws IOException 
     {
     	try
     	{
-	        FileInputStream streamInputFile = new FileInputStream("stdout.log");
+    		FileInputStream streamInputFile;
+    		if(index == 1)
+    		{
+    	        streamInputFile = new FileInputStream(tempFile.toString());
+    		}
+    		else
+    		{
+    			streamInputFile = new FileInputStream("stdout.log");
+    		}
 	        Scanner scanInput = new Scanner(streamInputFile);
 	        
 	        while(scanInput.hasNext() )
 	        {
-	        	logFileContent += scanInput.nextLine() + "   ";
+	        	String nextIndex;
+	        	nextIndex = scanInput.nextLine() ;
+	        	logFileContent += nextIndex+ "\r";
 	        	
 	        }
 	        streamInputFile.close();
@@ -104,7 +124,6 @@ public class StartUp {
     		//Could not create/open the file
     	}
 		return null;
-
     }
 }
 
