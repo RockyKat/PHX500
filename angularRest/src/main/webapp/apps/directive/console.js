@@ -4,16 +4,7 @@ app.directive("w3TestDirective", function() {
         		
         		"<textarea name='message' style='background-color:black; color:lightgreen; width:700px; height:200px;'>{{outLog}}</textarea>" +
         		"<br>" 
-        		
-        		
-        		
-        		
-
-        		
-
-        		
-          		
-        		
-        		
+        		   		
     };
 });
+
