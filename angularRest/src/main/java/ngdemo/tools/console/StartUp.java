@@ -20,7 +20,7 @@ public class StartUp {
 	Path tempDir;
 	Path tempFile;
 	String logFile;
-	String logFileContent;
+	String logFileContent = "";
 
     public StartUp(int index) {
 		try 
@@ -110,7 +110,7 @@ public class StartUp {
 	        while(scanInput.hasNext() )
 	        {
 	        	String nextIndex;
-	        	nextIndex = scanInput.nextLine() ;
+	        	nextIndex = scanInput.nextLine();
 	        	logFileContent += nextIndex+ "\r";
 	        	
 	        }
