@@ -41,22 +41,22 @@ public class StartUp {
     		if(index == 1)
     		{
     			 fout= new FileOutputStream(tempFile.toString());
-    			 //ferr= new FileOutputStream(tempFile.toString());
+    			 ferr= new FileOutputStream(tempFile.toString());
     		}
     		else
     		{
     			 fout= new FileOutputStream("stdout.log");
-    			 //ferr= new FileOutputStream("stderr.log");
+    			 ferr= new FileOutputStream("stderr.log");
     		}
     		
     		MultiOutputStream multiOut= new MultiOutputStream(System.out, fout);
-    		//MultiOutputStream multiErr= new MultiOutputStream(System.err, ferr);
+    		MultiOutputStream multiErr= new MultiOutputStream(System.err, ferr);
     		
     		PrintStream stdout= new PrintStream(multiOut);
-    		//PrintStream stderr= new PrintStream(multiErr);
+    		PrintStream stderr= new PrintStream(multiErr);
     		
     		System.setOut(stdout);
-    		//System.setErr(stderr);
+    		System.setErr(stderr);
     		
         	System.err.println("Console File:" + tempFile.toString());
         	System.err.println("STARTUP LOG:");

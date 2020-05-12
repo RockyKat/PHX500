@@ -1,5 +1,5 @@
-services.factory('SQLFactory', function ($resource) {
-    return $resource('/ngdemo/rest/mysql/demo', {}, {
+services.factory('SwapFactory', function ($resource) {
+    return $resource('/ngdemo/rest/swap/readTable', {}, {
         query: {
             method: 'GET',
             params: {},

@@ -8,3 +8,5 @@ Usage: http://localhost/ngdemo/rest/hello/foo
 Another REST tutorial by Vogella: http://www.vogella.com/articles/REST/
 
 This thing won't commit.
+
+CNORTH:  WORK FROM NORTH-BASELINE.  YOUR MUST ADD YOUR CODE TO THIS BRANCH.  STOP ALL OTHER WORK.

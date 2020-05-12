@@ -34,7 +34,7 @@ CREATE TABLE `phxswap` (
   `PkgStatus` varchar(45) NOT NULL DEFAULT 'NO' COMMENT 'Allowed =\nNO -> Not tested yet\nTESTING\nYES ->Validated',
   `Problems` varchar(45) DEFAULT NULL COMMENT 'List any problems with this package found in testing',
   PRIMARY KEY (`PkgId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Shows the status and versions of packages as they are being tested in demo program.';
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Shows the status and versions of packages as they are being tested in demo program.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `phxswap` (
 
 LOCK TABLES `phxswap` WRITE;
 /*!40000 ALTER TABLE `phxswap` DISABLE KEYS */;
-INSERT INTO `phxswap` VALUES (1,'Y','N','DROOLS','drools-compiler 5.5.0',NULL,'NO',NULL),(2,'Y','N','AngularJS','AngularJS 1.3.13',NULL,'TESTING',NULL);
+INSERT INTO `phxswap` VALUES (1,'Y','N','DROOLS','drools-compiler 5.5.0',NULL,'NO',NULL),(2,'Y','N','AngularJS','AngularJS 1.3.13',NULL,'TESTING',NULL),(3,'Y','N','Bootstrap','Bootstrap 3.3.1','Bootstrap 3.3.5-6','NO',NULL),(4,'N','Y','Bootstrap','Bootstrap 3.3.6','Bootstrap 3.3.6','NO',NULL),(5,'Y','N','Java','Java 1.7.0_191 (Oracle JDK)','Java 1.7.0_191 (Oracle JDK)','NO',NULL),(6,'N','Y','Java','Java 1.8.0_172 (Oracle JDK)','Java 1.8.0_172 (Oracle JDK)','NO',NULL),(7,'Y','N','Apache Tomcat','Apache Tomcat 7.0.81',NULL,'NO',NULL),(8,'N','Y','Apache Tomcat','Apache Tomcat 8.0.30',NULL,'NO',NULL),(9,'Y','N','MySQL','mysql-connector-java 5.1.31','mysql-connector-java 5.1.31','TESTING',NULL),(10,'N','Y','MySQL','mysql-connector-java 5.1.37',NULL,'NO',NULL),(11,'Y','N','JBoss','jboss-transactions-api 1.2 spec-1.0.0',NULL,'NO',NULL),(16,'N','Y','AngularJs','AngularJs 1.5.0','AngularJs 1.5.0','NO',NULL),(17,'Y','N','Java REST','Version A',NULL,'TESTING',''),(18,'N','Y','Java REST','Version B',NULL,'NO',NULL),(19,'Y','Y','Hibernate','hibernate-jpa-2.1-api 1.0.0','hibernate-jpa-2.1-api 1.0.0','NO',NULL);
 /*!40000 ALTER TABLE `phxswap` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-23 15:58:00
+-- Dump completed on 2020-05-02 18:47:23

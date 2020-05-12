@@ -23,6 +23,24 @@
 		    <artifactId>mysql-connector-java</artifactId>
 		    <version>8.0.18</version>
 		</dependency>
+		
+<dependency>
+		<groupId>org.drools</groupId>
+		<artifactId>drools-compiler</artifactId>
+		<version>6.0.1.Final</version>
+		</dependency>
+		
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-simple</artifactId>
+    <version>1.6.1</version>
+</dependency>		
+
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>1.6.1</version>
+    </dependency>
 
         <!-- RESTful web service: Jersey -->
         <dependency>
@@ -63,9 +81,11 @@
         <finalName>ngdemo</finalName>
     </build>
     
+<properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>       
     
-    
-
       <repositories>
         <repository>
           <id>mvnrepository</id>

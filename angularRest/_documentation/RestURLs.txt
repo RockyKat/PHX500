@@ -1,0 +1,32 @@
+URLS that take you from front end to backend.
+
+
+PHXSWAP = perform operations on SWAP table.
+/ngdemo/rest/phxswap/readTable  = read entire Swap table
+/ngdemo/rest/phxswap/create/{PackageName}/{CurrentVersion} = create a new row in SWAP table with given PackageName and CurrentVersion.
+/ngdemo/rest/phxswap/read/{ix}" = read the row of SWAP table with given primary key.
+/ngdemo/rest/phxswap/update/{WhichTerm}/{ValueTerm}/{ix} = change row of SWAP TABLE with primary key ix. Column WhichTerm will have new 
+	value = ValueTerm. 
+/ngdemo/rest/phxswap/delete/{ix} = delete the row of SWAP TABLE with given primary key of ix.
+
+PHXSQL = demo CRUD operations on arbitary table customer in sakila database.
+/ngdemo/rest/phxsql/demo = Demo the CRUD capabilities of interfacing to customer table in sakila database that came with MySQL WBench.
+/ngdemo/rest/phxsql/create/{varX}/{varY} = Create a row in customer table with given firstname = varX, lastname = varY
+/ngdemo/rest/phxsql/read/{primaryKey} = read the row in customer table with primary key = primaryKey.
+/ngdemo/rest/phxsql/update/{firstname}/{lastname}/{primaryKey} = update the row in customer table with primary key = primaryKey
+	so that firstname and lastname are as in parameters.
+/ngdemo/rest/phxsql/delete/{primaryKey} = delete the row in customer table with primary key = primaryKey
+
+
+drooltest = test DROOLS capability
+/ngdemo/rest/drool/demo = Use the .drl file to determine the discount for two different kinds of jewelry
+
+jvaeight = Test Java 8 release code.
+/ngdemo/rest/jvaeight = Test features new to Java 8 release. All output is printed to console.
+(NOTE: Could do individual tests if you want to add these features)
+
+I've "decoupled" from Home/Users/SQL in base directory. We can recouple if you like.
+All code has been debugged.
+You'd scream if you knew how.
+Dead code is removed.
+All code should conform to your method now. 

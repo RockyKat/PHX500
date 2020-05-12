@@ -1,4 +1,3 @@
-// SQL Controler.
 app.controller('SQLController', ['$scope', 'SQLFactory', 
 	function ($scope, SQLFactory) 
 	{
