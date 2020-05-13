@@ -12,7 +12,7 @@ import java.util.*;
 public class PHXSWAPService {
     private Connection 			con;
     private Statement 			st;
-    private ResultSet 			resutlSet;
+    private ResultSet 			resultSet;
     		ResultSetMetaData 	meta;
     		StartUp 			startUpLog;
     		int 				indexType;
@@ -45,25 +45,25 @@ public SWAP getData()
 	     
 	     System.out.println("Records from PHXSWAP Database");
 	     
-	     resutlSet 	  = st.executeQuery(query);
+	     resultSet 	  = st.executeQuery(query);
 	     returningRows = st.execute(query);
 	     if (returningRows)
 	     {
-	       resutlSet = st.getResultSet();
+	       resultSet = st.getResultSet();
 	     }
 	     
-	     resutlSet.first();
-	     while (resutlSet.next()) 
+//	     resultSet.first();
+	     while (resultSet.next()) 
 	     {
 		     phxSwap = new PHXSWAP();
-		     phxSwap.setCpd				(resutlSet.getObject("CPD"				).toString());
-		     phxSwap.setCurrentVersion	(resutlSet.getObject("CurrentVersion"	).toString());
-		     phxSwap.setPackageName		(resutlSet.getObject("PackageName"		).toString());
-		     phxSwap.setPkgStatus		(resutlSet.getObject("PkgStatus"		).toString());
-		     phxSwap.setProblems		(resutlSet.getObject("Problems"			).toString());
-		     phxSwap.setSlice			(resutlSet.getObject("Slice"			).toString());
-		     phxSwap.setUrl				(resutlSet.getObject("url"				).toString());			     
-		     phxSwap.setSwapListVersion	(resutlSet.getObject("SwapListVersion"	).toString());
+		     phxSwap.setCpd				(resultSet.getObject("CPD"				).toString());
+		     phxSwap.setCurrentVersion	(resultSet.getObject("CurrentVersion"	).toString());
+		     phxSwap.setPackageName		(resultSet.getObject("PackageName"		).toString());
+		     phxSwap.setPkgStatus		(resultSet.getObject("PkgStatus"		).toString());
+		     phxSwap.setProblems		(resultSet.getObject("Problems"			).toString());
+		     phxSwap.setSlice			(resultSet.getObject("Slice"			).toString());
+		     phxSwap.setUrl				(resultSet.getObject("url"				).toString());			     
+		     phxSwap.setSwapListVersion	(resultSet.getObject("SwapListVersion"	).toString());
 		     arrayOfPhxSwap.add(phxSwap);
 		     
 	    	 System.out.print("-------------------------------------" + "\r"); 
@@ -165,16 +165,16 @@ public PHXSWAP readARow(int primaryKey)
     	   int primaryKey = primarykey;
     	   String findNewCustomer = "SELECT * FROM phxswap WHERE PkgId = "+primaryKey;
     	   
-    	   resutlSet = st.executeQuery(findNewCustomer);
-    	   resutlSet.next(); 	
+    	   resultSet = st.executeQuery(findNewCustomer);
+    	   resultSet.next(); 	
     	   
-    	   String SLICE = resutlSet.getString("SLICE");
-    	   String CPD  =  resutlSet.getString("CPD");
-    	   String PackageName = resutlSet.getString("PackageName");
-    	   String CurrentVersion = resutlSet.getString("CurrentVersion");
-    	   String SwapListVersion = resutlSet.getString("SwapListVersion");
-    	   String PkgStatus = resutlSet.getString("PkgStatus");
-    	   String Problems = resutlSet.getString("Problems");
+    	   String SLICE = resultSet.getString("SLICE");
+    	   String CPD  =  resultSet.getString("CPD");
+    	   String PackageName = resultSet.getString("PackageName");
+    	   String CurrentVersion = resultSet.getString("CurrentVersion");
+    	   String SwapListVersion = resultSet.getString("SwapListVersion");
+    	   String PkgStatus = resultSet.getString("PkgStatus");
+    	   String Problems = resultSet.getString("Problems");
     	   
     	   sql.setSlice(SLICE);
     	   sql.setCpd(CPD);
@@ -219,15 +219,15 @@ public PHXSWAP readARow(int primaryKey)
 	    	   
 	    	   //Read the line and stuff PHXSWAP with it.
 	    	   String findNewCustomer = "SELECT * FROM phxswap WHERE PkgId = "+primaryKey;
-	    	   resutlSet = st.executeQuery(findNewCustomer);
-	    	   resutlSet.next(); 
-	    	   String CPD = resutlSet.getString("CPD");
-	    	   String SLICE = resutlSet.getString("SLICE");
-	    	   String PackageName = resutlSet.getString("PackageName");
-	    	   String CurrentVersion = resutlSet.getString("CurrentVersion");
-	    	   String SwapListVersion = resutlSet.getString("SwapListVersion");
-	    	   String PkgStatus = resutlSet.getString("PkgStatus");
-	    	   String Problems = resutlSet.getString("Problems");
+	    	   resultSet = st.executeQuery(findNewCustomer);
+	    	   resultSet.next(); 
+	    	   String CPD = resultSet.getString("CPD");
+	    	   String SLICE = resultSet.getString("SLICE");
+	    	   String PackageName = resultSet.getString("PackageName");
+	    	   String CurrentVersion = resultSet.getString("CurrentVersion");
+	    	   String SwapListVersion = resultSet.getString("SwapListVersion");
+	    	   String PkgStatus = resultSet.getString("PkgStatus");
+	    	   String Problems = resultSet.getString("Problems");
 	    	   sql.setCpd(CPD);
 	    	   sql.setSlice(SLICE);
 	    	   sql.setPkgStatus(PkgStatus);
