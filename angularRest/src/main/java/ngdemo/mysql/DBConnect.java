@@ -10,7 +10,7 @@ package ngdemo.mysql;
 	    public DBConnect() {
 	 try {
 	     Class.forName("com.mysql.cj.jdbc.Driver");
-	     con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "admin","admin");
+	     con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sliceDS?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "admin","admin");
 
 	     st = con.createStatement();
 	 } catch (Exception ex) {
