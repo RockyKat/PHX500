@@ -58,8 +58,8 @@
 	             <div class="col">
 	               <select 	class="form-control form-control-inline mr-3 w-100"
 	               			ng-model="artistOrder">
-	                 		<option value="name">Name</option>
-	                 		<option value="reknown">Reknown</option>
+	                 		<option value="packageName">Package</option>
+	                 		<option value="currentVersion">Version</option>
 	               </select>
 	             </div>
 	           	</div>
@@ -70,16 +70,16 @@
 					<div class="card-body">
 					<a href="#{{item.url}}">	 
 					
-					<img ng-src="images/{{item.shortname}}" 
+					<img ng-src="images/{{item.pkgStatus}}" 
 						 alt="Photo of {{item.name}}"
 						 height="100" 
 						 class="d-inline-block align-top">
 						
 						 
-			   			<h5  class="my-0 text-dark">{{item.name}}</h5>
-						<div class="text-secondary font-italic">{{item.reknown}}</div>
+			   			<h5  class="my-0 text-dark">{{item.packageName}}</h5>
+						<div class="text-secondary font-italic">{{item.currentVersion}}</div>
 				  	</a>
-						<div class="text-secondary font-italic">{{item.bio}}</div>
+						<div class="text-secondary font-italic">{{item.problems}}</div>
 						
 			  		</div>	
 			  		

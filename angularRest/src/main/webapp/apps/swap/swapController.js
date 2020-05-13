@@ -8,7 +8,10 @@ app.controller('SwapController', ['$scope', 'SwapFactory',
 //	        $scope.swapfirstname 	= swapFactory.firstName;
 //	        $scope.swaplastname 	= swapFactory.lastName;
 //	        $scope.swapbmp 			= swapFactory.bmp;
-	        $scope.outLog			= swapFactory;
+	        $scope.outLog			= swapFactory.phxSwapLog;
+	        $scope.phxList			= swapFactory.arrayOfPhxSwap;
+	        $scope.artists 			= swapFactory.arrayOfPhxSwap;
+	        $scope.artistOrder 		= "packageName";
 
 
 	    })

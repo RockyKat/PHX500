@@ -44,9 +44,12 @@ var ngdemo = angular.module('ngdemo', [
            	$routeProvider.when('/home',
 									{templateUrl: 'apps/home/home.html'  , 
 									controller:  'HomeController'});
+//           	$routeProvider.when('/home/query',
+//           							{templateUrl: 'apps/home/query/homeQuery.html'  , 
+//									controller:  'HomeJsonController'});   
            	$routeProvider.when('/home/query',
-           							{templateUrl: 'apps/home/query/homeQuery.html'  , 
-									controller:  'HomeJsonController'});                 	
+						{templateUrl: 'apps/home/query/homeQuery.html'  , 
+					controller:  'SwapController'}); 
            	
         	$routeProvider.otherwise({redirectTo: '/home/query'});
     	}]);

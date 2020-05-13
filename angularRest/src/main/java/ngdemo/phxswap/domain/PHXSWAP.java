@@ -10,11 +10,12 @@ public class PHXSWAP {
    
     private String slice;
     private String cpd;
-    private String  PackageName;
+    private String PackageName;
     private String CurrentVersion;
     private String SwapListVersion;
     private String PkgStatus;
     private String Problems;
+    private String Url;
     
     public String getSlice()
     {
@@ -85,6 +86,15 @@ public class PHXSWAP {
     {
     	this.Problems = Problems;
     }
+    public String getUrl()
+    {
+    	return Url;
+    }
+    
+    public void setUrl(String Url)
+    {
+    	this.Url = Url;
+    }    
 
     
 }

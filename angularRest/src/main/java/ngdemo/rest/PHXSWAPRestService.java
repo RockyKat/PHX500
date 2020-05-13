@@ -1,12 +1,14 @@
 package ngdemo.rest;
 
 import ngdemo.phxswap.domain.PHXSWAP;
+import ngdemo.phxswap.domain.SWAP;
 import ngdemo.phxswap.service.PHXSWAPService;
 import ngdemo.tools.console.StartUp;
 
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.util.ArrayList;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -20,46 +22,52 @@ public class PHXSWAPRestService {
 
 	//I can't see why anybody would use this.
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_XML)
     public PHXSWAP getDefaultHomeInJSON() 
     {
         PHXSWAPService phxSwapService = new PHXSWAPService();
         return phxSwapService.getDefaultPHXSWAP();
     }
  
-    //TESTED.
-    //This is the one thing I know he wants for sure...read entire table with JDBC.
-    //To make things visually consistent I left the default settings for Home object.
-    //CGN
+    //----------------------------------------------------------------------------
+    //----------------------------------------------------------------------------
     @GET
     @Path("/readTable")
     @Produces(MediaType.APPLICATION_JSON)
-    public String ReadSwapTable()
+    public SWAP ReadSwapTable()
     {
     	int indexType = 1;
-	    StartUp startUpLog = new StartUp(indexType);
-	    System.out.println("SWAP");
-		System.out.println("SWAP SERVICE READ:");
     	String strOutLog = null;
-
-        PHXSWAPService phxswapService = new PHXSWAPService();
-        ResultSet resultGet = phxswapService.getData();    	
-	    System.out.println("RETURNED PHXSWAP TABLE");
     	
+    	// SETUP TEMP PRINT FILE
+	    StartUp startUpLog = new StartUp(indexType);
+		System.out.println("SWAP SERVICE READ:");
+		
+		// CALL SERVICE AND GET OBJECT RESULT
+        PHXSWAPService phxswapService = new PHXSWAPService();
+        SWAP resultGet = phxswapService.getData();    	
+    	
+        // READ LOG FILE
     	try 
     	{
 			strOutLog = startUpLog.readStdOutLogFile(indexType);
+	    	resultGet.setPhxSwapLog(strOutLog);
+
 		} 
     	catch (IOException e) 
     	{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	 
-	    return strOutLog;
+    	
+    	//  RETURN OBJECT RESULT.
+    	return resultGet;
 
     }
     
+    
+    //----------------------------------------------------------------------------
+    //----------------------------------------------------------------------------    
     //TESTED
     //create a row in table
     @GET
