@@ -66,10 +66,10 @@ public SWAP getData()
 		     phxSwap.setSwapListVersion	(resutlSet.getObject("SwapListVersion"	).toString());
 		     arrayOfPhxSwap.add(phxSwap);
 		     
-	    	 System.out.print("--------------------------------------------------------------------------------------------------"); 
-	    	 System.out.print("COTS:  " 		+ phxSwap.getPackageName()); 
-	    	 System.out.print("VERSION:  " 		+ phxSwap.getCurrentVersion()); 
-	    	 System.out.print("DESCRIPTION:  " 	+ phxSwap.getProblems()); 
+	    	 System.out.print("-------------------------------------" + "\r"); 
+	    	 System.out.print("COTS:  " 		+ phxSwap.getPackageName() + "\r"); 
+	    	 System.out.print("VERSION:  " 		+ phxSwap.getCurrentVersion() + "\r"); 
+	    	 System.out.print("DESCRIPTION:  " 	+ phxSwap.getProblems() + "\r"); 
 	
 	     }
 	     swapResults.setArrayOfPhxSwap(arrayOfPhxSwap);
