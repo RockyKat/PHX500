@@ -82,16 +82,14 @@ public class StartUp {
     
     private void createTempFileWithDir() throws IOException 
     {
-        tempDir = Files.createTempDirectory("tempfiles");
-         
-        tempFile = Files.createTempFile(tempDir, "tempfiles", ".tmp");
+        tempDir  = Files.createTempDirectory("PHXDEMO");
+        tempFile = Files.createTempFile     (tempDir, "PhxDemoTmp", ".tmp");        
         
         List<String> lines = Arrays.asList("Line1", "Line2");
-        Files.write(tempFile, lines, Charset.defaultCharset(), StandardOpenOption.WRITE);
-         
-//        System.err.printf("Wrote text to temporary file %s%n", tempFile.toString());
+        Files.write(tempFile, lines, Charset.defaultCharset(),StandardOpenOption.WRITE,StandardOpenOption.DELETE_ON_CLOSE);         
     }
     
+
     public String readStdOutLogFile(int index) throws IOException 
     {
     	try

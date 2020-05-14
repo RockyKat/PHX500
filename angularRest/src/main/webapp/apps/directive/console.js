@@ -1,8 +1,8 @@
 app.directive("w3TestDirective", function() {
     return {
-        template : "<h1>TESTING:</h1>" +
+        template : "<h4>CONSOLE:</h4>" +
         		
-        		"<textarea name='message' style='background-color:black; color:lightgreen; width:700px; height:400px;'>{{outLog}}</textarea>" +
+        		"<textarea name='message' style='background-color:black; color:lightgreen; width:100%; height:400px;'>{{outLog}}</textarea>" +
         		"<br>" 		   		
     };
 });
