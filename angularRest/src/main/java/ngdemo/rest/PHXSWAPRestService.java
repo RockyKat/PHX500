@@ -59,7 +59,11 @@ public class PHXSWAPRestService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	
+    	catch (Exception ee)
+    	{
+    		System.out.println("SOMETHING NOT IOEXCEPTION");
+    		ee.printStackTrace();
+    	}
     	//  RETURN OBJECT RESULT.
     	return resultGet;
 

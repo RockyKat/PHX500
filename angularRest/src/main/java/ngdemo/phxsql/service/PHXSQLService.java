@@ -25,7 +25,8 @@ public class PHXSQLService {
               try 
               {
     	     Class.forName("com.mysql.cj.jdbc.Driver");
-    	     con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sliceDS?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "admin","admin");
+    	     //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sliceDS?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root","PaulShock1");
+    	       con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sakila?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root","PaulShock1");
     	     
     	     st = con.createStatement();
     	 } 
