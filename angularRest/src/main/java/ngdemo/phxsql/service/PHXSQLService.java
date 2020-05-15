@@ -16,24 +16,31 @@ public class PHXSQLService {
       private Connection con;
       private Statement st;
       private ResultSet rs;
+	  private static final String RDS_URL = "jdbc:mysql://slice-test.cnsbrmylp4nh.us-east-1.rds.amazonaws.com:3306";
+	  private static final String RDS_DATABASE = "phxcvd19";
+	  private static final String RDS_UN = "admin";
+	  private static final String RDS_PW = "slicetest";  
+	  
   	   StartUp startUpLog;
   	   int indexType;
   	   String strOutLog = null;
 
            public PHXSQLService()
            {
-              try 
-              {
-    	     Class.forName("com.mysql.cj.jdbc.Driver");
-    	     con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sliceDS?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "admin","admin");
-    	     
-    	     st = con.createStatement();
-    	 } 
+             try 
+             {
+            	 Class.forName("com.mysql.cj.jdbc.Driver");
+            	 //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sliceDS?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "admin","admin");
+            	 con = DriverManager.getConnection(RDS_URL + "/" + RDS_DATABASE, RDS_UN, RDS_PW);
+            	 System.out.println("Connected to " + RDS_URL + "/" + RDS_DATABASE);
+            	 st = con.createStatement();
+             } 
              catch (Exception ex) 
              {
-    	     System.out.println("ERRORCON: " + ex);
-              }
-          }
+        		 System.out.println("Failed to connect to " + RDS_URL + "/" + RDS_DATABASE);
+            	 System.out.println("ERRORCON: " + ex);
+             }
+           }
            
            public PHXSQL getDefaultSQL() {
                PHXSQL sql = new PHXSQL();
