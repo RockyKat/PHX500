@@ -17,10 +17,10 @@ package ngdemo.mysql;
 	     //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sliceDS?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "admin","admin");
 	     con = DriverManager.getConnection(RDS_URL + "/" + RDS_DATABASE, RDS_UN, RDS_PW);
 	     st = con.createStatement();
-	     System.out.println("Connected to " + RDS_URL + "/" + "RDS_DATABASE");
+	     System.err.println("Connected to " + RDS_URL + "/" + "RDS_DATABASE");
 	 } catch (Exception ex) {
-		 System.out.println("Failed to connect to " + RDS_URL + "/" + "RDS_DATABASE");
-	     System.out.println("ERRORCON: " + ex);
+		 System.err.println("Failed to connect to " + RDS_URL + "/" + "RDS_DATABASE");
+	     System.err.println("ERRORCON: " + ex);
 	     
 	 }
 	    }    

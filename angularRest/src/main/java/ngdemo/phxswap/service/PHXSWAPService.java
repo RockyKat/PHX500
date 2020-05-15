@@ -10,26 +10,32 @@ import ngdemo.tools.console.StartUp;
 import java.util.*;
 
 public class PHXSWAPService {
-    private Connection 			con;
-    private Statement 			st;
-    private ResultSet 			resultSet;
-    		ResultSetMetaData 	meta;
-    		StartUp 			startUpLog;
-    		int 				indexType;
-    		PHXSWAP 			phxSwap;
+	  private static final 	String RDS_URL 		= "jdbc:mysql://slice-test.cnsbrmylp4nh.us-east-1.rds.amazonaws.com:3306";
+	  private static final 	String RDS_DATABASE = "phxcvd19";
+	  private static final 	String RDS_UN 		= "admin";
+	  private static final 	String RDS_PW 		= "slicetest"; 	
+	  private 				Connection 			con;
+	  private 				Statement 			st;
+	  private 				ResultSet 			resultSet;
+    						ResultSetMetaData 	meta;
+    						StartUp 			startUpLog;
+    						int 				indexType;
+    						PHXSWAP 			phxSwap;
     		
 //-------------------------------------------------------------------------------	    
 public PHXSWAPService() 
-{
+{ 	  
 	 try {
 	     Class.forName("com.mysql.cj.jdbc.Driver");
-	     con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sliceDS?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "admin", "admin");
-
+	     //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sliceDS?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "admin", "admin");
+    	 con = DriverManager.getConnection(RDS_URL + "/" + RDS_DATABASE, RDS_UN, RDS_PW);
+    	 System.err.println("Connected to " + RDS_URL + "/" + RDS_DATABASE);
 	     st = con.createStatement();
 	 } 
 	 catch (Exception ex) 
 	 {
-	     System.out.println("ERRORCON: " + ex);
+		 System.err.println("Failed to connect to " + RDS_URL + "/" + RDS_DATABASE);
+    	 System.err.println("ERRORCON: " + ex);	     
 	     
 	 }
 	    }    
