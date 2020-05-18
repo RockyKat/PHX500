@@ -1,7 +1,80 @@
-<html>
-	<body>
-		<h2>PHXSWAP DATABASE TABLE</h1>
-						<w3-test-directive></w3-test-directive>
-				<div w3-test-directive></div>  
-	</body>
-</html>
+<div class="container">
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#/swap/">
+      	<img src="images/cots.jpeg" width="30" height="30" class="d-inline-block align-top" alt="">
+		COTS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+<!--       <li class="nav-item active"> -->
+<!--         <a class="nav-link" href="#/sql/query">Features</a> -->
+<!--       </li> -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ACTION
+        </a>
+        <div ng-model="checked" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#/swap/">QUERY PHXSWAP</a>
+
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+    <div class="row">
+      <div class="col-12 mt-3">
+          <div class="card">
+            <div class="card-header d-flex align-items-start justify-content-between">
+              <h1 class="card-title my-0">COTS Commercial off-the-shelf .</h1>
+
+            </div>
+            <div class="card-body"
+              ng-model="artists">
+              <h4 class="card-title text-dark mt-0">DATABASE QUERY COTS</h4>
+              <img class="float-left mr-2 rounded"
+                ng-src="images/cots.jpeg"
+                alt="Photo">
+              <div ng-show="checked"class="card-text text-secondary">MySql</div>
+				<w3-test-directive></w3-test-directive>
+				<div w3-test-directive></div>                
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+
+<div ng-controller="ngclickCtrl">
+
+	<h2>AngularJs ng-click Events Example</h2>
+
+	<input type="button" style="cursor:pointer" value="Click Here" ng-click ="clkcount=false" /><br /><br />
+
+	<span style="color:Red">Number of Times you Clicked: {{clkcount}}</span>
+
+</div>
+
+
+
+Show: <input type="checkbox" ng-model="checked" aria-label="Toggle ngShow"><br />
+<div class="check-element funky-show-hide" ng-show="checked">
+  I show up when your checkbox is checked.
+</div>
+
+
+
+
+
+
+				
+				
