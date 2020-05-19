@@ -2,19 +2,15 @@ package ngdemo.rest;
 
 import ngdemo.jvaeight.domain.Jvaeight;
 import ngdemo.jvaeight.service.JvaeightService;
-import ngdemo.phxsql.domain.PHXSQL;
-import ngdemo.phxswap.domain.SWAP;
 import ngdemo.tools.console.StartUp;
-
-import java.io.IOException;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/jvaeight")
-public class JvaeightRestService {
+@Path("/java8")
+public class Java8RestService {
 
      @GET 
      @Produces(MediaType.APPLICATION_JSON)
