@@ -1,7 +1,7 @@
 package ngdemo.rest;
 
-import ngdemo.jvaeight.domain.Jvaeight;
-import ngdemo.jvaeight.service.JvaeightService;
+import ngdemo.java8.domain.Java8;
+import ngdemo.java8.service.Java8Service;
 import ngdemo.tools.console.StartUp;
 
 import javax.ws.rs.GET;
@@ -14,7 +14,7 @@ public class Java8RestService {
 
      @GET 
      @Produces(MediaType.APPLICATION_JSON)
-     public Jvaeight doDemo()
+     public Java8 doDemo()
      {
         int indexType = 1;
         String strOutLog = null;
@@ -24,9 +24,9 @@ public class Java8RestService {
     	StartUp startUpLog = new StartUp(indexType);
     	System.out.println("JAVA EIGHT SERVICE READ:");
     	 
-        JvaeightService jservice = new JvaeightService();
+        Java8Service jservice = new Java8Service();
         jservice.doDemo();
-        Jvaeight mia = jservice.getDefaultSQL(start, indexType); 
+        Java8 mia = jservice.getDefaultSQL(start, indexType); 
         
         // READ LOG FILE
     	try 

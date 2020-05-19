@@ -1,6 +1,6 @@
-package ngdemo.jvaeight.domain;
+package ngdemo.java8.domain;
 
-public class Jvaeight {
+public class Java8 {
 
 	private String firstname;
 	private String lastname;

@@ -1,6 +1,6 @@
 //CHECKS JAVA 8 FEATURES. ALL METHODS PUBLIC BECAUSE I MAY 
 //WANT TO CALL THEM Individually.
-package ngdemo.jvaeight.service;
+package ngdemo.java8.service;
 
 import java.util.*;
 import java.util.stream.*;
@@ -11,7 +11,7 @@ import java.time.*;
 import java.net.*;
 import java.util.function.BiFunction;  
 import javax.script.*;
-import ngdemo.jvaeight.domain.Jvaeight;
+import ngdemo.java8.domain.Java8;
 //Returns results of Java 8 feature tests.
 import ngdemo.phxsql.domain.PHXSQL;
 import ngdemo.tools.console.StartUp;
@@ -25,14 +25,14 @@ class Arithmetic{
 	   }
 	   }  
 
-public class JvaeightService {
+public class Java8Service {
 	
 	   StartUp startUpLog;
   	   int indexType;
   	   String strOutLog = null;	
 
 
-   public JvaeightService()
+   public Java8Service()
    {
        System.out.println("DOING IT");   	   
    }
@@ -241,7 +241,7 @@ public class JvaeightService {
 	 
 	 //return (Jvaeight) null;
    }
-   public Jvaeight getDefaultSQL(StartUp start, int index) {
+   public Java8 getDefaultSQL(StartUp start, int index) {
       	
        startUpLog = start;
       	indexType = index;
@@ -255,13 +255,13 @@ public class JvaeightService {
   		}
   		
       	
-          Jvaeight jate = new Jvaeight();
-          jate.setFirstname("Java JDK 8");
-          jate.setLastname("Demo Java 8 Features.");
-          jate.setBmp("java.png");
-          jate.setStrOutLog(strOutLog);
+          Java8 java = new Java8();
+          java.setFirstname("Java JDK 8");
+          java.setLastname("Demo Java 8 Features.");
+          java.setBmp("java.png");
+          java.setStrOutLog(strOutLog);
 
-          return jate;
+          return java;
       }   
    
 }
