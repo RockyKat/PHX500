@@ -13,7 +13,7 @@ import ngdemo.tools.console.StartUp;
 
 
 
-@Path("/drool")
+@Path("/drools")
 public class DroolTestRestService {
 	
 	
