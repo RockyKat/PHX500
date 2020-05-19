@@ -25,6 +25,14 @@ jvaeight = Test Java 8 release code.
 /ngdemo/rest/jvaeight = Test features new to Java 8 release. All output is printed to console.
 (NOTE: Could do individual tests if you want to add these features)
 
+hibtest - Test Hibernate CRUD ops with employee table.
+ADD ROW; DISPLAY ROW; ALTER ROW; DISPLAY ROW; DELETE ROW
+/ngdemo/rest/hibernate/demo
+
+myjpa - Test JPA CRUD ops with student table.
+ADD ROW; CHANGE ROW; DELETE ROW; READ ROW AFTER EVERY STEP BUT DELETE.
+/ngdemo/rest/myjpa/demo
+
 I've "decoupled" from Home/Users/SQL in base directory. We can recouple if you like.
 All code has been debugged.
 You'd scream if you knew how.

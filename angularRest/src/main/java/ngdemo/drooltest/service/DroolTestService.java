@@ -12,10 +12,16 @@ import org.drools.core.RuleBase;
 import org.drools.core.RuleBaseFactory;
 import org.drools.core.WorkingMemory;
 import ngdemo.drooltest.domain.DroolTest;
+import ngdemo.phxsql.domain.PHXSQL;
+import ngdemo.tools.console.StartUp;
 
 
 public class DroolTestService 
 {
+	StartUp startUpLog;
+ 	 int indexType;
+ 	 String strOutLog = null;
+
 	
    public void executeDrools()
    {
@@ -56,4 +62,27 @@ public class DroolTestService
 	       System.out.println(ee);	
 	   }
    }
+   
+    public DroolTest getDefaultDroolStuff(StartUp start, int index) {
+      	
+       startUpLog = start;
+      	indexType = index;
+
+      	try 
+      	{
+  			strOutLog = startUpLog.readStdOutLogFile(indexType);
+  		} catch (IOException e) {
+  			// TODO Auto-generated catch block
+  			e.printStackTrace();
+  		}
+  		
+      	
+          DroolTest droolobj = new DroolTest();
+          droolobj.setFirstName("JBOSS Drools");
+          droolobj.setLastName("Demo Drools Rule Engine.");
+          droolobj.setBmp("drools.png");
+          droolobj.setStrOutLog(strOutLog);
+
+          return droolobj;
+      }
 }

@@ -11,7 +11,10 @@ import java.time.*;
 import java.net.*;
 import java.util.function.BiFunction;  
 import javax.script.*;
+import ngdemo.jvaeight.domain.Jvaeight;
 //Returns results of Java 8 feature tests.
+import ngdemo.phxsql.domain.PHXSQL;
+import ngdemo.tools.console.StartUp;
 
 class Arithmetic{  
 	   public static int add(int a, int b){  
@@ -23,13 +26,18 @@ class Arithmetic{
 	   }  
 
 public class JvaeightService {
+	
+	   StartUp startUpLog;
+  	   int indexType;
+  	   String strOutLog = null;	
+
 
    public JvaeightService()
    {
        System.out.println("DOING IT");   	   
    }
    
- 
+    
    
    interface MyInterface 
    { 
@@ -230,7 +238,32 @@ public class JvaeightService {
 	 testNashorn();
 	 testBase64Coding();	 
 	 System.out.println("\nEND OF JAVA 8 DEMO PROGRAM");
+	 
+	 //return (Jvaeight) null;
    }
+   public Jvaeight getDefaultSQL(StartUp start, int index) {
+      	
+       startUpLog = start;
+      	indexType = index;
+
+      	try 
+      	{
+  			strOutLog = startUpLog.readStdOutLogFile(indexType);
+  		} catch (IOException e) {
+  			// TODO Auto-generated catch block
+  			e.printStackTrace();
+  		}
+  		
+      	
+          Jvaeight jate = new Jvaeight();
+          jate.setFirstname("Java JDK 8");
+          jate.setLastname("Demo Java 8 Features.");
+          jate.setBmp("java.png");
+          jate.setStrOutLog(strOutLog);
+
+          return jate;
+      }   
+   
 }
    
            

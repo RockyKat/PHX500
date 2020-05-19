@@ -8,6 +8,8 @@ import javax.ws.rs.core.MediaType;
 
 import ngdemo.drooltest.domain.DroolTest;
 import ngdemo.drooltest.service.DroolTestService;
+import ngdemo.phxsql.domain.PHXSQL;
+import ngdemo.tools.console.StartUp;
 
 
 
@@ -18,12 +20,18 @@ public class DroolTestRestService {
     @GET
 	@Path("/demo")
     @Produces(MediaType.APPLICATION_JSON)
-    public DroolTest getDefaultSQLInJSON() 
+    public  DroolTest getDefaultDroolStuffInJSON() 
     {
+        int indexType = 1;
+    	StartUp start = new StartUp(indexType);   	
+    	
        DroolTestService droolService = new DroolTestService();
        droolService.executeDrools();
+       
+       DroolTest mia = droolService.getDefaultDroolStuff(start, indexType); 
+       System.out.println("DroolTestRestService lastname:  " + mia.getLastName());
     	
-       return (DroolTest) null;
+       return mia;
     }
 			
 	

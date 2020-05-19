@@ -9,25 +9,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 //which comes with MYSQL workbench
 public class PHXSQL {
 
-/*    private String firstName;
-    private String lastName;
-    private String bmp;
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }*/
     public String getBmp() {
         return bmp;
     }
