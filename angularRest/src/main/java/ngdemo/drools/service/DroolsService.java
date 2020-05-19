@@ -1,5 +1,5 @@
 //Calls the Service class to do the real work
-package ngdemo.drooltest.service;
+package ngdemo.drools.service;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,12 +11,11 @@ import org.drools.compiler.compiler.PackageBuilder;
 import org.drools.core.RuleBase;
 import org.drools.core.RuleBaseFactory;
 import org.drools.core.WorkingMemory;
-import ngdemo.drooltest.domain.DroolTest;
-import ngdemo.phxsql.domain.PHXSQL;
+import ngdemo.drools.domain.Drools;
 import ngdemo.tools.console.StartUp;
 
 
-public class DroolTestService 
+public class DroolsService 
 {
 	StartUp startUpLog;
  	 int indexType;
@@ -40,7 +39,7 @@ public class DroolTestService
 
 		WorkingMemory workingMemory = ruleBase.newStatefulSession();
 
-		DroolTest product = new DroolTest();
+		Drools product = new Drools();
 		product.setType("gold");
 
 		workingMemory.insert(product);
@@ -49,7 +48,7 @@ public class DroolTestService
 		System.out.println("The discount for the product " + product.getType()
 				+ " is " + product.getDiscount()); 
 		
-		DroolTest product2 = new DroolTest();
+		Drools product2 = new Drools();
 		product2.setType("diamond");
 		workingMemory.insert(product2);
 		workingMemory.fireAllRules();
@@ -63,7 +62,7 @@ public class DroolTestService
 	   }
    }
    
-    public DroolTest getDefaultDroolStuff(StartUp start, int index) {
+    public Drools getDefaultDrools(StartUp start, int index) {
       	
        startUpLog = start;
       	indexType = index;
@@ -77,12 +76,12 @@ public class DroolTestService
   		}
   		
       	
-          DroolTest droolobj = new DroolTest();
-          droolobj.setFirstName("JBOSS Drools");
-          droolobj.setLastName("Demo Drools Rule Engine.");
-          droolobj.setBmp("drools.png");
-          droolobj.setStrOutLog(strOutLog);
+          Drools droolsObj = new Drools();
+          droolsObj.setFirstName("JBOSS Drools");
+          droolsObj.setLastName("Demo Drools Rule Engine.");
+          droolsObj.setBmp("drools.png");
+          droolsObj.setStrOutLog(strOutLog);
 
-          return droolobj;
+          return droolsObj;
       }
 }
