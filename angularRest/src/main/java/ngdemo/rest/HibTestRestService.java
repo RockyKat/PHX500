@@ -22,7 +22,8 @@ public class HibTestRestService {
     	StartUp start = new StartUp(indexType); 
     	
     	HibTestService hibtestService = new HibTestService();
-    	hibtestService.TestHibernate();
+    	// ERROR
+    	//hibtestService.TestHibernate();
     	HibTest mia = hibtestService.getDefaultHibTest(start, indexType); 
     	return mia;
     }

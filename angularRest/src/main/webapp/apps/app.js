@@ -47,6 +47,9 @@ var ngdemo = angular.module('ngdemo', [
         	$routeProvider.when('/drools',
 									{templateUrl: 'apps/drools/drools.html'  , 
 	 								controller:  'DroolsController'});
+        	$routeProvider.when('/hibernate',
+									{templateUrl: 'apps/hibernate/hibernate.html'  , 
+									controller:  'HibernateController'});        	
            	$routeProvider.when('/home/query',
 						{templateUrl: 'apps/home/query/homeQuery.html'  , 
 					controller:  'SwapController'}); 
