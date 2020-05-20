@@ -8,7 +8,7 @@ import ngdemo.myjpa.service.*;
 import ngdemo.myjpa.domain.MyJpa;
 import ngdemo.tools.console.StartUp;
 
-@Path("/myjpa")
+@Path("/jpa")
 public class MyJpaRestService {
 
 @GET
