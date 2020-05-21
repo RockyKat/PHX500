@@ -1,7 +1,6 @@
 package ngdemo.phxsql.service;
 
 import ngdemo.phxsql.domain.PHXSQL;
-import ngdemo.sql.domain.SQL;
 import ngdemo.tools.console.StartUp;
 
 import java.io.IOException;
@@ -60,7 +59,7 @@ public class PHXSQLService {
        			strOutLog = startUpLog.readStdOutLogFile(indexType);
        		} catch (IOException e) {
        			// TODO Auto-generated catch block
-       			e.printStackTrace();
+       			System.err.println(e.getStackTrace());
        		}
        		
            	

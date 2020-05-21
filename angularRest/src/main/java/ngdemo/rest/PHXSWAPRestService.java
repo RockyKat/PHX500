@@ -57,12 +57,12 @@ public class PHXSWAPRestService {
     	catch (IOException e) 
     	{
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println(e.getStackTrace());
 		}
     	catch (Exception ee)
     	{
     		System.out.println("SOMETHING NOT IOEXCEPTION");
-    		ee.printStackTrace();
+    		System.err.println(ee.getStackTrace());
     	}
     	//  RETURN OBJECT RESULT.
     	return resultGet;

@@ -18,20 +18,24 @@ PHXSQL = demo CRUD operations on arbitary table customer in sakila database.
 /ngdemo/rest/phxsql/delete/{primaryKey} = delete the row in customer table with primary key = primaryKey
 
 
-drooltest = test DROOLS capability
-/ngdemo/rest/drool/demo = Use the .drl file to determine the discount for two different kinds of jewelry
+drools = test DROOLS capability
+/ngdemo/rest/drools/demo = Use the .drl file to determine the discount for two different kinds of jewelry
 
-jvaeight = Test Java 8 release code.
-/ngdemo/rest/jvaeight = Test features new to Java 8 release. All output is printed to console.
+java8 = Test Java 8 release code.
+/ngdemo/rest/java8 = Test features new to Java 8 release. All output is printed to console.
 (NOTE: Could do individual tests if you want to add these features)
 
-hibtest - Test Hibernate CRUD ops with employee table.
+hibernate - Test Hibernate CRUD ops with employee table.
 ADD ROW; DISPLAY ROW; ALTER ROW; DISPLAY ROW; DELETE ROW
 /ngdemo/rest/hibernate/demo
 
-myjpa - Test JPA CRUD ops with student table.
+jpa - Test JPA CRUD ops with student table.
 ADD ROW; CHANGE ROW; DELETE ROW; READ ROW AFTER EVERY STEP BUT DELETE.
-/ngdemo/rest/myjpa/demo
+/ngdemo/rest/jpa/demo
+
+poi - Test interface to Microsoft files using POI - I test EXCEL and PPT access.
+/ngdemo/rest/poi/demo
+
 
 I've "decoupled" from Home/Users/SQL in base directory. We can recouple if you like.
 All code has been debugged.

@@ -2,7 +2,6 @@ package ngdemo.rest;
 
 import ngdemo.phxsql.domain.PHXSQL;
 import ngdemo.phxsql.service.PHXSQLService;
-import ngdemo.sql.domain.SQL;
 import ngdemo.tools.console.StartUp;
 
 import javax.ws.rs.GET;

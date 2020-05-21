@@ -1,4 +1,4 @@
-package ngdemo.myjpa.domain;
+package ngdemo.jpa.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

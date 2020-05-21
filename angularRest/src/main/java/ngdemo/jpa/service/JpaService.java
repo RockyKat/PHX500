@@ -1,11 +1,11 @@
-package ngdemo.myjpa.service;
+package ngdemo.jpa.service;
 
 import java.io.IOException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import ngdemo.myjpa.domain.*;
+import ngdemo.jpa.domain.*;
 //import net.javaguides.hibernate.util.JPAUtil;
 import ngdemo.tools.console.StartUp;
 
@@ -14,7 +14,7 @@ import ngdemo.tools.console.StartUp;
  * @author Ramesh Fadatare
  *
  */
-public class  MyJpaService{
+public class  JpaService{
 	    int primaryKey = 0;
 	  	   StartUp startUpLog;
 	  	   int indexType;
@@ -81,7 +81,7 @@ public class  MyJpaService{
         entityManager.close();
     }
     
-    public MyJpa getDefaultJPA(StartUp start, int index) {
+    public Jpa getDefaultJPA(StartUp start, int index) {
        	
         startUpLog = start;
        	indexType = index;
@@ -91,13 +91,13 @@ public class  MyJpaService{
    			strOutLog = startUpLog.readStdOutLogFile(indexType);
    		} catch (IOException e) {
    			// TODO Auto-generated catch block
-   			e.printStackTrace();
+   			System.err.println(e.getStackTrace());
    		}
    		
        	
-           MyJpa myJpa = new MyJpa();
+           Jpa myJpa = new Jpa();
            myJpa.setFirstName("JPA - Java Persistence API");
-           myJpa.setLastName("Demo Database Access.");
+           myJpa.setLastName("Demo Database Access via JPA.");
            myJpa.setBmp("hibernate_small.jpg");
            myJpa.setStrOutLog(strOutLog);
 

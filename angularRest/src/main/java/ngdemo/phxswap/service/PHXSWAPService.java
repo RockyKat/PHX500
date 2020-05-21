@@ -92,13 +92,13 @@ public SWAP getData()
 				st.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.err.println(e.getStackTrace());
 			}
 		     try {
 				con.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-					e.printStackTrace();
+					System.err.println(e.getStackTrace());
 				}
 		 }
  
@@ -152,7 +152,7 @@ try
 }
 catch (Exception e)
 {
-   System.out.println(e.getStackTrace());
+   System.err.println(e.getStackTrace());
  }	
 return sql;
 }
@@ -193,7 +193,7 @@ public PHXSWAP readARow(int primaryKey)
     	}
     	catch (Exception e)
     	{
-    		System.out.println(e.getStackTrace());	    		
+    		System.err.println(e.getStackTrace());	    		
     	}
 	    return sql;
     }
@@ -246,7 +246,7 @@ public PHXSWAP readARow(int primaryKey)
 	    	}
 	    	catch(Exception e)
 	    	{
-	    		System.out.println(e.getStackTrace());
+	    		System.err.println(e.getStackTrace());
 	    	}
 	    	
 	    	return sql;
@@ -273,7 +273,7 @@ public PHXSWAP readARow(int primaryKey)
 	    	    	}
 	    	    	catch (Exception e)
 	    	    	{
-	    	    		System.out.println(e.getStackTrace());
+	    	    		System.err.println(e.getStackTrace());
 	    	    	}
 	    	    	
 	    	    	return sql;

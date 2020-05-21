@@ -1,4 +1,4 @@
-package ngdemo.phxpoi.service;
+package ngdemo.poi.service;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -9,8 +9,10 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xslf.usermodel.XMLSlideShow;
+import org.apache.poi.xslf.usermodel.XSLFPictureData;
 
-import ngdemo.phxpoi.domain.PHXPOI;
+import ngdemo.poi.domain.POI;
 import ngdemo.tools.console.StartUp;
 
 import java.io.FileOutputStream;
@@ -21,13 +23,13 @@ import java.io.FileInputStream;
 import java.io.File;
 import java.util.Iterator;
 
-public class PHXPOIService {
+public class POIService {
 	
 	   StartUp startUpLog;
 	   int indexType;
 	   String strOutLog = null;
 	
-	public PHXPOI getDefaultPOI(StartUp start, int index) 
+	public POI getDefaultPOI(StartUp start, int index) 
 	{
        	
         startUpLog = start;
@@ -38,13 +40,13 @@ public class PHXPOIService {
    			strOutLog = startUpLog.readStdOutLogFile(indexType);
    		} catch (IOException e) {
    			// TODO Auto-generated catch block
-   			e.printStackTrace();
+   			System.err.println(e.getStackTrace());
    		}
    		
        	
-           PHXPOI poi = new PHXPOI();
+           POI poi = new POI();
            poi.setFirstName("Apache POI");
-           poi.setLastName("Demo Excel File Access");
+           poi.setLastName("Demo Microsoft File Access");
            poi.setBmp("apache_poi_small.jpg");
            poi.setStrOutLog(strOutLog);
 
@@ -110,7 +112,7 @@ public class PHXPOIService {
         }
         catch (Exception ee)
         {
-        	ee.printStackTrace();
+        	System.err.println(ee.getStackTrace());
         }
     }
 	
@@ -118,7 +120,7 @@ public class PHXPOIService {
 	{
 		    try
 		    {
-		     System.out.println("\nTESTING EXCEL FILE READ BY POI");	
+		     System.out.println("\nTESTING EXCEL FILE READ BY APACHE POI");	
 	        //final String FILE_NAME = "./xssf_example.xlsx";
 		    String ruleFile = "/com/rule/xssf_example.xlsx";
 			InputStream resourceAsStream = getClass().getResourceAsStream(ruleFile);
@@ -149,7 +151,7 @@ public class PHXPOIService {
 	    }
 		catch (Exception ee)
 		    {
-			ee.printStackTrace();
+			System.err.println(ee.getStackTrace());
 		    }
 	}	
 	
@@ -158,7 +160,7 @@ public class PHXPOIService {
 	{
 		try
 		{
-	    System.out.println("\nTESTING READING EXCEL FILE FORMULA BY POI");
+	    System.out.println("\nTESTING READING EXCEL FILE FORMULA BY APACHE POI");
 	    String ruleFile = "/com/rule/FormulaMultiply.xlsx";
 		InputStream resourceAsStream = getClass().getResourceAsStream(ruleFile);		
 						
@@ -187,11 +189,37 @@ public class PHXPOIService {
 	            	}
 	            }
 	        }
+			workbook.close();
+			resourceAsStream.close();
 		}
 		catch (Exception ee)
 		{
-			ee.printStackTrace();
+			System.err.println(ee.getStackTrace());
 		}
    }	
+	
+	public void readPowerPoiint()
+	{
+		try
+		{
+			System.out.println("\nTESTING READING POWERPOINT IMAGES BY APACHE POI");
+			String pptFile = "/com/rule/AutomationAnalysis.pptx";
+			InputStream resourceAsStream = getClass().getResourceAsStream(pptFile);
+			XMLSlideShow ppt = new XMLSlideShow(resourceAsStream);
+			for(XSLFPictureData data : ppt.getPictureData())
+			{
+			    //byte[] bytes = data.getData();
+			    String fileName = data.getFileName();
+			    int mySize = data.getData().length;
+			    System.out.println("Embedded Picture: "+fileName+ " of size "+mySize+ " bytes.");
+			}	
+			ppt.close();
+			resourceAsStream.close();
+		}
+		catch (Exception ee)
+		{
+			System.err.println(ee.getStackTrace());
+		}
+	}
 	
 }

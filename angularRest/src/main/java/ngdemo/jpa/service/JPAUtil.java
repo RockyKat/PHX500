@@ -1,4 +1,4 @@
-package ngdemo.myjpa.service;
+package ngdemo.jpa.service;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

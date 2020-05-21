@@ -32,11 +32,6 @@ public class Java8Service {
   	   String strOutLog = null;	
 
 
-   public Java8Service()
-   {
-       System.out.println("DOING IT");   	   
-   }
-   
     
    
    interface MyInterface 
@@ -66,14 +61,14 @@ public class Java8Service {
        MyInterface fobj = (int x, int y)->System.out.println(x+y); 
        System.out.println("\nTESTING LAMBDA FEATURE");
 
-       System.out.print("The result = ");
+       System.out.print("The result of adding 5 and 5 = ");
        fobj.abstract_func(5,5); 
        fobj.default_Fun();
        
        String[] planets = new String[]{"Mercury", "Venus", "Earth","Mars",
        		"Jupiter","Saturn","Uranus","Neptune"};
        //System.out.println(Arrays.toString(planets));
-       System.out.println("Planets sorted in dictionary order:");
+       System.out.println("\nPlanets sorted in dictionary order:");
        Arrays.sort(planets);
        System.out.println(Arrays.toString(planets));
        System.out.println("Planets sorted by length via lambda:");
@@ -129,7 +124,7 @@ public class Java8Service {
 	         }
 	         catch (Exception t)
 	         {
-	            t.printStackTrace();
+	            System.err.println(t.getStackTrace());
 	         }
 	      }
 
@@ -207,7 +202,7 @@ public class Java8Service {
 		    ScriptEngine engine = factory.getEngineByName("nashorn");
 		    engine.eval("function hi(){\nvar a = 'PROSPER'.toLowerCase(); \nmiddle(); \nprint('Live long and ' + a)}\n function middle(){\n var b = 1; for(var i=0, max = 5; i<max;i++){\nb++;\n}\n print('b is '+b);}hi();");
 		    } catch (Exception ex) {
-		            ex.printStackTrace();
+		            System.err.println(ex.getStackTrace());
 		        }
    }
 	
@@ -223,7 +218,7 @@ public class Java8Service {
 	   Base64.Decoder decoder = Base64.getDecoder();
 	   byte[] decodedByteArray = decoder.decode(encodedString);
 	   //Verify the decoded string
-	   System.out.println("Original term was "+new String(decodedByteArray));
+	   System.out.println("Decoded: Original term was "+new String(decodedByteArray));
    }
  
    //Test all parts of Java 8 new features and print output.
@@ -251,7 +246,7 @@ public class Java8Service {
   			strOutLog = startUpLog.readStdOutLogFile(indexType);
   		} catch (IOException e) {
   			// TODO Auto-generated catch block
-  			e.printStackTrace();
+  			System.err.println(e.getStackTrace());
   		}
   		
       	

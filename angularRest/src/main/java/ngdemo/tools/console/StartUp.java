@@ -76,7 +76,7 @@ public class StartUp {
 
 		catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println(e.getStackTrace());
 		}
     }
     

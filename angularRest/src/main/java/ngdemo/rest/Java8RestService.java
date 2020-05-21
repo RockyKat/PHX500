@@ -37,7 +37,7 @@ public class Java8RestService {
 		} 
     	catch (Exception e) 
     	{
-			e.printStackTrace();
+			System.err.println(e.getStackTrace());
 		}
 
     	return mia;

@@ -1,11 +1,12 @@
-package ngdemo.hibtest.domain;
+package ngdemo.poi.domain;
 
-public class HibTest {
+public class POI {
 
 	private String first_name;
 	private String last_name;
 	private String bmp;
 	private String strOutLog;
+
 	
 	public String getFirstName()
 	{
@@ -41,6 +42,4 @@ public class HibTest {
     public void setBmp(String bmp) {
         this.bmp = bmp;
     }
-	
-
 }

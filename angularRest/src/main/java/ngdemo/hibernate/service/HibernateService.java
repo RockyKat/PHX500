@@ -1,8 +1,7 @@
-package ngdemo.hibtest.service;
+package ngdemo.hibernate.service;
  
-import ngdemo.hibtest.domain.EmployeeEntity;
-import ngdemo.hibtest.domain.HibTest;
-import ngdemo.phxsql.domain.PHXSQL;
+import ngdemo.hibernate.domain.EmployeeEntity;
+import ngdemo.hibernate.domain.Hibernate;
 import ngdemo.tools.console.StartUp;
 
 import java.io.IOException;
@@ -11,7 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.*;
  
-public class HibTestService {
+public class HibernateService {
 	
 	   StartUp startUpLog;
 	   int indexType;
@@ -76,7 +75,7 @@ public class HibTestService {
         sessionFactory.close();       
     }
     
-    public HibTest getDefaultHibTest(StartUp start, int index) {
+    public Hibernate getDefaultHibTest(StartUp start, int index) {
        	
         startUpLog = start;
        	indexType = index;
@@ -86,11 +85,11 @@ public class HibTestService {
    			strOutLog = startUpLog.readStdOutLogFile(indexType);
    		} catch (IOException e) {
    			// TODO Auto-generated catch block
-   			e.printStackTrace();
+   			System.err.println(e.getStackTrace());
    		}
    		
        	
-           HibTest hibTest = new HibTest();
+           Hibernate hibTest = new Hibernate();
            hibTest.setFirstName("Hibernate 4.3");
            hibTest.setLastName("Demo Hibernate Access.");
            hibTest.setBmp("hibernate_small.jpg");

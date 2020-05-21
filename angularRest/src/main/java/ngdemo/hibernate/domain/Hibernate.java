@@ -1,12 +1,11 @@
-package ngdemo.phxpoi.domain;
+package ngdemo.hibernate.domain;
 
-public class PHXPOI {
+public class Hibernate {
 
 	private String first_name;
 	private String last_name;
 	private String bmp;
 	private String strOutLog;
-
 	
 	public String getFirstName()
 	{
@@ -42,4 +41,6 @@ public class PHXPOI {
     public void setBmp(String bmp) {
         this.bmp = bmp;
     }
+	
+
 }

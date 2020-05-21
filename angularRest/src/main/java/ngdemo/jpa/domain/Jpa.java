@@ -1,4 +1,4 @@
-package ngdemo.myjpa.domain;
+package ngdemo.jpa.domain;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 // JAX-RS supports an automatic mapping from JAXB annotated class to XML and JSON
 //MODIFIED BY CGN: Is set up to return what is in CUSTOMER table of SAKILA database
 //which comes with MYSQL workbench
-public class MyJpa {
+public class Jpa {
 
-        private String bmp;
+    private String bmp;
 	private String first_name;
 	private String last_name;
 	private String strOutLog;

@@ -4,29 +4,29 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import ngdemo.myjpa.service.*;
-import ngdemo.myjpa.domain.MyJpa;
+import ngdemo.jpa.service.*;
+import ngdemo.jpa.domain.Jpa;
 import ngdemo.tools.console.StartUp;
 
 @Path("/jpa")
-public class MyJpaRestService {
+public class JpaRestService {
 
 @GET
 @Path("/demo")
 @Produces(MediaType.APPLICATION_JSON)	
- public MyJpa MyJpaDemoAll()
+ public Jpa MyJpaDemoAll()
  {
 	
 	int indexType = 1;
 	StartUp start = new StartUp(indexType);	
 	
-    MyJpaService myJpaService = new MyJpaService();
+    JpaService myJpaService = new JpaService();
     myJpaService.insertEntity();
     myJpaService.findEntity();
     myJpaService.updateEntity();
     myJpaService.removeEntity();
     
-    MyJpa myJpa = myJpaService.getDefaultJPA(start, indexType); 
+    Jpa myJpa = myJpaService.getDefaultJPA(start, indexType); 
     return myJpa;
  }
 }

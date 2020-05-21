@@ -19,7 +19,7 @@ public class HomeService {
 			strOutLog = startUpLog.readStdOutLogFile(indexType);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println(e.getStackTrace());
 		}
 		
 

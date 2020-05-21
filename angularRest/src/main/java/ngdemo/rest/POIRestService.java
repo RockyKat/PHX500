@@ -1,8 +1,8 @@
 package ngdemo.rest;
 
 import ngdemo.tools.console.StartUp;
-import ngdemo.phxpoi.service.PHXPOIService;
-import ngdemo.phxpoi.domain.PHXPOI;
+import ngdemo.poi.service.POIService;
+import ngdemo.poi.domain.POI;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -10,27 +10,28 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 @Path("/poi")
-public class PHXPOIRestService {
+public class POIRestService {
 	
 	// Duplicate of my original demo. Does all CRUD ops.
 	   @GET
 		@Path("/demo")
 	    @Produces(MediaType.APPLICATION_JSON)
-	    public PHXPOI getDefaultSQLInJSON() 
+	    public POI getDefaultSQLInJSON() 
 	    {		   		   
 	    	int indexType = 1;
 	    	StartUp start = new StartUp(indexType);
 		   
-	        PHXPOIService phxpoiService = new PHXPOIService();
+	        POIService poiService = new POIService();
 	        
 	        //phxpoiService.doDemoWrite();
-	        phxpoiService.doDemoRead();
-	        phxpoiService.ReadExcelFormula();
+	        poiService.doDemoRead();
+	        poiService.ReadExcelFormula();
+	        poiService.readPowerPoiint();
 	        
-	        PHXPOI mia = phxpoiService.getDefaultPOI(start, indexType); 
-	        System.out.println("PHXPOIRestService lastname:  " + mia.getLastName());
+	        POI poi = poiService.getDefaultPOI(start, indexType); 
+	        System.out.println("PHXPOIRestService lastname:  " + poi.getLastName());
 	        //System.out.println("Returned miaa");
-	        return mia;	        
+	        return poi;	        
 	      
 	    }
 }

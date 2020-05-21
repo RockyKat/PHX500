@@ -1,4 +1,4 @@
-package ngdemo.hibtest.domain;
+package ngdemo.hibernate.domain;
  
 import java.io.Serializable;
  
