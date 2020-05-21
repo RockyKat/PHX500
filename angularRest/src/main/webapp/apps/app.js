@@ -52,7 +52,10 @@ var ngdemo = angular.module('ngdemo', [
 									controller:  'HibernateController'});  
         	$routeProvider.when('/jpa',
 									{templateUrl: 'apps/jpa/jpa.html'  , 
-									controller:  'JPAController'});         	
+									controller:  'JPAController'});  
+        	$routeProvider.when('/poi',
+									{templateUrl: 'apps/poi/poi.html'  , 
+									controller:  'POIController'});          	
            	$routeProvider.when('/home/query',
 						{templateUrl: 'apps/home/query/homeQuery.html'  , 
 					controller:  'SwapController'}); 
