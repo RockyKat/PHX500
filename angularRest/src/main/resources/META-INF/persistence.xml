@@ -5,11 +5,16 @@
     <persistence-unit name="PERSISTENCE">
         <properties>
            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-           <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/phxcvd19"/>
+           <property name="javax.persistence.jdbc.url" value="jdbc:mysql://slice-test.cnsbrmylp4nh.us-east-1.rds.amazonaws.com:3306/phxcvd19"/>
            <property name="javax.persistence.jdbc.user" value="admin"/>
-           <property name="javax.persistence.jdbc.password" value="admin"/>
+           <property name="javax.persistence.jdbc.password" value="slicetest"/>
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
         </properties>
     </persistence-unit>
 </persistence>
+
+<!-- 	  private static final String RDS_URL = "jdbc:mysql://slice-test.cnsbrmylp4nh.us-east-1.rds.amazonaws.com:3306"; -->
+<!-- 	  private static final String RDS_DATABASE = "phxcvd19"; -->
+<!-- 	  private static final String RDS_UN = "admin"; -->
+<!-- 	  private static final String RDS_PW = "slicetest";   -->
