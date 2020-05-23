@@ -21,7 +21,8 @@ public class JsonRestService {
     	StartUp start = new StartUp(indexType);   	
     	
        JsonService jsonService = new JsonService();
-       jsonService.gimmeCookies();
+       jsonService.testJSONCookies();
+       jsonService.testJSONHTTPHeaders();
        
        Json mia = jsonService.getDefaultJSON(start, indexType); 
        System.out.println("JsonService lastname:  " + mia.getLastname());

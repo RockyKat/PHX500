@@ -17,6 +17,11 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.stream.Collectors;
 import java.util.List;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.ArrayList;
+ 
 
 
 public class JsonService
@@ -159,31 +164,6 @@ public class JsonService
 	  }
   }
   
-  public void gimmeCookies()
-  {
-	  String bigString = null;
-	  try
-	  {
-	     URLConnection connection = new URL("http://google.com").openConnection();
-	     List<String> cookies = connection.getHeaderFields().get("Set-Cookie");
-	     System.out.println("Number of cookies found :"+cookies.size());
-	     for (int count = 0; count < cookies.size(); count++)
-	     {
-	        bigString += cookies.get(count);	 
-	     }
-	     
-	     System.out.println(bigString);
-	     JSONObject jsonObject = Cookie.toJSONObject(cookies.get(0));
-	     System.out.println("WRITING AS JSONOBJECT");
-	     System.out.println(jsonObject);
-	   
-	  
-	  }
-	  catch (Exception excp)
-	  {
-		  excp.printStackTrace();	  
-	  }
-   }
   
   public Json getDefaultJSON(StartUp start, int index) {
     	
@@ -207,4 +187,123 @@ public class JsonService
 
          return jsonObj;
      }
+  
+  public void testJSONCookies()
+  {
+	  try
+	  {
+		  System.out.println("\n TEST COOKIE TO JSON OBJECT CONVERSION");
+  URL url = new URL("http://www.google.com");
+  URLConnection conn = url.openConnection();
+  String forjsonString = null;
+ int numcookies = 0;
+  Map<String, List<String>> headerFields = conn.getHeaderFields();
+
+  Set<String> headerFieldsSet = headerFields.keySet();
+  Iterator<String> hearerFieldsIter = headerFieldsSet.iterator();
+   
+  while (hearerFieldsIter.hasNext()) {
+       
+       String headerFieldKey = hearerFieldsIter.next();
+        
+       if ("Set-Cookie".equalsIgnoreCase(headerFieldKey)) {
+           List<String> headerFieldValue = headerFields.get(headerFieldKey);
+            
+           for (String headerValue : headerFieldValue) {
+                
+              System.out.println("\nCookie Found...");
+                
+              String[] fields = headerValue.split(";\\s*");
+
+              String cookieValue = fields[0];
+              String expires = null;
+              String path = null;
+              String domain = null;
+              boolean secure = false;
+               
+              // Parse each field
+              for (int j = 1; j < fields.length; j++) {
+                  if ("secure".equalsIgnoreCase(fields[j])) {
+                      secure = true;
+                  }
+                  else if (fields[j].indexOf('=') > 0) {
+                      String[] f = fields[j].split("=");
+                      if ("expires".equalsIgnoreCase(f[0])) {
+                         expires = f[1];
+                      }
+                      else if ("domain".equalsIgnoreCase(f[0])) {
+                          domain = f[1];
+                      }
+                      else if ("path".equalsIgnoreCase(f[0])) {
+                          path = f[1];
+                      }
+                  }
+                   
+              }
+              numcookies++;
+              System.out.println("PRINTING WHAT WAS FOUND IN COOKIE "+numcookies);
+              System.out.println("cookieValue:" + cookieValue);
+              forjsonString += "cookieValue = "+cookieValue+";";
+              System.out.println("expires:" + expires);
+              forjsonString += " expires = "+ expires+";";
+              System.out.println("path:" + path);
+              forjsonString += " path = "+path +";";
+              System.out.println("domain:" + domain);
+              forjsonString += " domain = "+ domain + ";";
+              System.out.println("secure:" + secure);
+              forjsonString += " secure = "+ secure + ";";                        
+              System.out.println("*****************************************");
+ 
+              System.out.println("JSON OBJECT FOR COOKIE #"+numcookies);
+              JSONObject jsonObject = Cookie.toJSONObject(forjsonString);
+              System.out.println(jsonObject);
+              forjsonString = null;
+           }
+       }
+            
+    }
+}
+	  catch (Exception ee)
+	  {
+	     ee.printStackTrace();  
+	  }
+	  
+}
+  public void testJSONHTTPHeaders()
+  {
+  try {
+	    JSONObject jsonObject = new JSONObject();
+		URL obj = new URL("http://google.com");
+		URLConnection conn = obj.openConnection();
+		Map<String, List<String>> map = conn.getHeaderFields();
+		String headerText = "";
+		String subString;
+		//List<String> stringValue =  new ArrayList<String>();
+	
+		for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+			subString = entry.getKey() + " : " + entry.getValue();
+			System.out.println("DEBUG: "+subString);
+			//jsonObject.put(stringKey,stringValue);
+			headerText += subString;
+			}
+		
+		System.out.println("\nGet Response Header By Key ...\n");
+		List<String> contentLength = map.get("Content-Length");
+		if (contentLength == null) {
+			System.out.println("'Content-Length' doesn't present in Header!");
+		} else {
+			for (String header : contentLength) {
+				System.out.println("Content-Lenght: " + header);
+			}
+		}
+		
+		//String stringify = HTTP.toString(jsonObject);
+		//System.out.println(stringify);
+		System.out.println( HTTP.toJSONObject(headerText)); //THIS WORKED
+
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+}
+  
 }
