@@ -1,5 +1,6 @@
+///ngdemo/rest/mysql/demo
 services.factory('SQLFactory', function ($resource) {
-    return $resource('/ngdemo/rest/mysql/demo', {}, {
+    return $resource('/ngdemo/rest/json/demo', {}, {
         query: {
             method: 'GET',
             params: {},

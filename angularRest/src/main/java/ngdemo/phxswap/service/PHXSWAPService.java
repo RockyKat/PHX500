@@ -27,8 +27,9 @@ public PHXSWAPService()
 { 	  
 	 try {
 	     Class.forName("com.mysql.cj.jdbc.Driver");
+	    con = DriverManager.getConnection("jdbc:mysql://localhost:3306/phxcvd19?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "PaulShock1");
 	     //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/phxcvd19?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "admin", "admin");
-    	 con = DriverManager.getConnection(RDS_URL + "/" + RDS_DATABASE, RDS_UN, RDS_PW);
+    	 //con = DriverManager.getConnection(RDS_URL + "/" + RDS_DATABASE, RDS_UN, RDS_PW);
     	 System.err.println("Connected to " + RDS_URL + "/" + RDS_DATABASE);
 	     st = con.createStatement();
 	 } 
