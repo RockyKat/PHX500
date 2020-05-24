@@ -7,6 +7,7 @@ import org.json.JSONStringer;
 import org.json.CDL;
 import org.json.JSONTokener;
 import org.json.Cookie;
+import java.net.HttpURLConnection;
 
 import ngdemo.json.domain.Json;
 import ngdemo.tools.console.StartUp;
@@ -40,7 +41,7 @@ public class JsonService
       list.put(new Boolean(true));
       list.put(JSONObject.NULL);
 
-      System.out.println("JSONArray: ");
+      System.out.println("String converted to JSONArray: ");
       System.out.println(list);
    }
   
@@ -160,7 +161,7 @@ public class JsonService
 	  }
 	  catch (Exception excp)
 	  {
-		  System.err.print(excp.getStackTrace());
+		  excp.printStackTrace();
 	  }
   }
   
@@ -272,9 +273,12 @@ public class JsonService
   public void testJSONHTTPHeaders()
   {
   try {
+	    System.out.println("\nTESTING JSON HTTP features.");
 	    JSONObject jsonObject = new JSONObject();
-		URL obj = new URL("http://google.com");
-		URLConnection conn = obj.openConnection();
+		URL obj = new URL("http://www.crunchify.com");
+		//URLConnection conn = obj.openConnection();
+		HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
+		
 		Map<String, List<String>> map = conn.getHeaderFields();
 		String headerText = "";
 		String subString;
@@ -287,18 +291,16 @@ public class JsonService
 			headerText += subString;
 			}
 		
-		System.out.println("\nGet Response Header By Key ...\n");
 		List<String> contentLength = map.get("Content-Length");
 		if (contentLength == null) {
 			System.out.println("'Content-Length' doesn't present in Header!");
 		} else {
 			for (String header : contentLength) {
-				System.out.println("Content-Lenght: " + header);
+				System.out.println("Content-Length: " + header);
 			}
 		}
 		
-		//String stringify = HTTP.toString(jsonObject);
-		//System.out.println(stringify);
+		System.out.println("\nHEADER ABOVE CONVERTED TO JSON STRING");
 		System.out.println( HTTP.toJSONObject(headerText)); //THIS WORKED
 
 	} catch (Exception e) {

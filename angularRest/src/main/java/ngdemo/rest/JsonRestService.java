@@ -21,6 +21,11 @@ public class JsonRestService {
     	StartUp start = new StartUp(indexType);   	
     	
        JsonService jsonService = new JsonService();
+       jsonService.testJSONArray();
+       jsonService.testJSONXMLConversion();
+       jsonService.testJSONStringer();
+       jsonService.testCDLJSONInterface();
+       //jsonService.testReadWebPageAsString();
        jsonService.testJSONCookies();
        jsonService.testJSONHTTPHeaders();
        
